@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./Header";
-import TransactionContainer from "./TransactionContainer";
+import Speeds from "./Speeds";
+import Calculator from "./Calculator";
 
 function App() {
   return (
     <>
       <Header />
-      <TransactionContainer/>
+      <Speeds />
+      <Calculator />
     </>
   );
 }
