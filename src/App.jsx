@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./index.css";
 import Header from "./Header";
 import Speeds from "./Speeds";
 import Calculator from "./Calculator";
@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Header />
-      <Speeds />
       <Calculator />
+      <Speeds />
     </>
   );
 }
