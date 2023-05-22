@@ -1,0 +1,98 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    margin: 2 0 1rem;
+    padding: .5em 1em 1em;
+    align-items: center;
+    background-color: rgb(23, 23, 23);
+  }
+  
+  header {
+    /* border: solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  header h1{
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+  }
+  
+  .sub-title{
+     font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-size: .6rem;
+    text-align: center;
+    font-weight: 200;
+    margin-top: -.5rem;
+    color:  rgb(242, 242, 242);
+    text-align: center;
+  }
+  
+  .timer{
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-size: .8rem;
+    margin-top: 0.2rem;
+    font-weight: 200;
+    color:  rgb(242, 242, 242);
+    text-align: center;
+    border-top: solid white 1px;
+  
+    
+  }
+  
+  .current-price{
+    /* border: solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: .5rem; */
+    align-items: center;
+    
+  }
+  
+  #eth-price{
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-weight: 600;
+    color: rgb(242, 242, 242)
+  }
+  
+  .currency-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1.5px solid black;
+    border-radius: 50px;
+    width: 100%;
+    box-shadow: 2px 2px 0 rgb(0, 0, 0);
+    background-color: rgb(242, 242, 242);
+  
+  }
+  
+  .currency{
+    transition: 100ms;
+    padding: 2px 5px;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: .8rem;
+    ;
+  }
+  
+  .active{
+    transition: 100ms;
+    background-color: rgb(255, 200, 0);
+  }

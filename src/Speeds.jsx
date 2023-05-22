@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./speeds.css"
 
 const Speeds = () => {
   const speeds = ["Low", "Average", "High"];

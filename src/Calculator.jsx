@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./calculator.css"
 
 const Calculator = () => {
   const [speed, setSpeed] = useState("23");

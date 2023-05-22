@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.css";
+import "./app.css";
 import Header from "./Header";
 import Speeds from "./Speeds";
 import Calculator from "./Calculator";
