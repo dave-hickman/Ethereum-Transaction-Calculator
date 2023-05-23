@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./calculator.css"
 
-const Calculator = () => {
-  const [speed, setSpeed] = useState("23");
-  const [transaction, setTransaction] = useState("210000");
+const Calculator = ({ethPrice, gasSpeeds}) => {
+  const [speed, setSpeed] = useState(Math.round(gasSpeeds.eco.feeCap));
+  const [transaction, setTransaction] = useState("21000");
   const [result, setResult] = useState("");
 
   const handleSpeedChange = (event) => {
@@ -16,7 +16,7 @@ const Calculator = () => {
   const calculateResult = (event) => {
     event.preventDefault();
     if(speed && transaction){
-    const calculatedResult = (parseInt(speed) * parseInt(transaction)) / 100000;
+    const calculatedResult = (parseInt(speed) * parseInt(transaction))*(ethPrice/(10**9));
     const twoDecimal = calculatedResult.toFixed(2);
     setResult(`$${twoDecimal}`);
     }
@@ -33,9 +33,9 @@ const Calculator = () => {
             value={speed}
             onChange={handleSpeedChange}
           >
-            <option value="23">Low</option>
-            <option value="28">Average</option>
-            <option value="42">High</option>
+            <option value={Math.round(gasSpeeds.eco.feeCap)}>Slow</option>
+            <option value={Math.round(gasSpeeds.fast.feeCap)}>Fast</option>
+            <option value={Math.round(gasSpeeds.instant.feeCap)}>Instant</option>
           </select>
         </div>
         <div className="gasLimit">

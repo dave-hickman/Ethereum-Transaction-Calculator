@@ -1,6 +1,6 @@
 import "./header.css"
 
-const Header = () => {
+const Header = ({ethPrice}) => {
   return (
     <nav>
       <header>
@@ -8,7 +8,7 @@ const Header = () => {
         <h3 className="sub-title">Ethereum Transaction Calculator</h3>
       </header>
       <div className="current-price">
-        <h4 id="eth-price">ETH Price: $29000</h4>
+        <h4 id="eth-price">ETH Price: ${ethPrice}</h4>
         <div className="currency-container">
           <h4 className="currency active">USD</h4>
           <h4 className="currency">GBP</h4>
