@@ -31,8 +31,8 @@ function App() {
   return (
     <>
       <Header ethPrice={ethPrice} />
-      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} />
-      <Speeds setGasSpeeds={setGasSpeeds} gasSpeeds={gasSpeeds} />
+      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} />
+      
     </>
   );
 }

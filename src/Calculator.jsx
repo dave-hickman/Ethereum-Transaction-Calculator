@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./calculator.css"
+import Speeds from "./Speeds";
 
-const Calculator = ({ethPrice, gasSpeeds}) => {
-  const [speed, setSpeed] = useState(Math.round(gasSpeeds.eco.feeCap));
+const Calculator = ({ethPrice, gasSpeeds, setGasSpeeds}) => {
+  const [speed, setSpeed] = useState(Math.round(gasSpeeds.fast.feeCap));
   const [transaction, setTransaction] = useState("21000");
   const [result, setResult] = useState("");
 
   const handleSpeedChange = (event) => {
-    setSpeed(event.target.value);
+    event.preventDefault()
+    setSpeed(event.currentTarget.value);
   };
   const handleTransactionChange = (event) => {
     setTransaction(event.target.value);
@@ -27,16 +29,7 @@ const Calculator = ({ethPrice, gasSpeeds}) => {
       <form id="form">
         <div className="speed-option">
           <label htmlFor="option">Choose your speed:</label>
-          <select
-            name="option"
-            id="option"
-            value={speed}
-            onChange={handleSpeedChange}
-          >
-            <option value={Math.round(gasSpeeds.eco.feeCap)}>Slow</option>
-            <option value={Math.round(gasSpeeds.fast.feeCap)}>Fast</option>
-            <option value={Math.round(gasSpeeds.instant.feeCap)}>Instant</option>
-          </select>
+          <Speeds setGasSpeeds={setGasSpeeds} gasSpeeds={gasSpeeds} handleSpeedChange={handleSpeedChange} setSpeed={setSpeed} />
         </div>
         <div className="gasLimit">
           <label htmlFor="option">Select your transaction type:</label>
