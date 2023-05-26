@@ -27,6 +27,7 @@
     font-size: .8rem;
     font-weight: 300;
     padding: .5em 1em;
+    border: .5px solid black;
     border-radius: 10px;
     vertical-align: center;
     min-width: none;

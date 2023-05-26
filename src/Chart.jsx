@@ -1,14 +1,13 @@
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import "./chart.css"
+import "./chart.css";
 
 const Chart = ({ historicPrices, chosenSpeed }) => {
   const timeStamps = [];
   const ecoData = [];
   const fastData = [];
   const instantData = [];
-  const speedData = []
-
+  const speedData = [];
 
   historicPrices.forEach((hour) => {
     const date = new Date(hour.timestamp * 1000);
@@ -26,40 +25,41 @@ const Chart = ({ historicPrices, chosenSpeed }) => {
       {
         label: `Gas Price`,
         data: speedData,
-        pointStyle: 'none',
+        pointStyle: "none",
         fill: false,
         borderColor: "rgb(23, 23, 23)",
         borderWidth: 2,
+        pointRadius: 0, // Remove the data points
+        pointHoverRadius: 0,
         pointerBorderColor: "rgb(23,23,23)",
         tension: 0.1,
-      }
+      },
     ],
   };
 
   const options = {
-    
     scales: {
       y: {
         beginAtZero: true,
       },
     },
     plugins: {
-        legend:{
-            labels:{
-                pointStyle: 'none'
-            }
-        }
+      legend: {
+        labels: {
+          pointStyle: "none",
+        },
+      },
     },
     elements: {
       point: {
-        backgroundColor: 'rgba(23, 23, 23)' 
+        backgroundColor: "rgba(23, 23, 23)",
       },
       rectangle: {
-        backgroundColor: 'rgba(0, 123, 255, 0.5)'
-      }
+        backgroundColor: "rgba(23,23, 23, 0.5)",
+      },
     },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
   };
 
   return (
