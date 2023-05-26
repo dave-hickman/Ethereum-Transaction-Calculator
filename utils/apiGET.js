@@ -25,3 +25,14 @@ export function fetchEthPrice() {
         setErrorMessage("An error occured. Please try again later.");
       });
 }
+
+export function fetchGasData() {
+  return axios.get(`https://api.gasprice.io/v1/historyByHour?duration=86400`)
+  .then((response) => {
+      return response.data.result
+  })
+  .catch((error) => {
+      console.error("An error occured:", error);
+      setErrorMessage("An error occured. Please try again later.");
+    });
+}

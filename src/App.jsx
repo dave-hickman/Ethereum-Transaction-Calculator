@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
 import "./index.css";
 import Header from "./Header";
-import Speeds from "./Speeds";
 import Calculator from "./Calculator";
-import { fetchEthPrice, fetchSpeeds } from "../utils/apiGET";
+import { fetchEthPrice, fetchSpeeds, fetchGasData } from "../utils/apiGET";
 
 
 function App() {
   const [gasSpeeds, setGasSpeeds] = useState({});
   const [ethPrice, setEthPrice] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [historicPrices, setHistoricPrices] = useState([])
 
   useEffect(() => {
-    Promise.all([fetchSpeeds(), fetchEthPrice()])
-      .then(([speeds, price]) => {
+    Promise.all([fetchSpeeds(), fetchEthPrice(), fetchGasData()])
+      .then(([speeds, price, historic]) => {
         setGasSpeeds(speeds);
         setEthPrice(price);
+        setHistoricPrices(historic)
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,8 +32,7 @@ function App() {
   return (
     <>
       <Header ethPrice={ethPrice} />
-      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} />
-      
+      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} historicPrices={historicPrices} />
     </>
   );
 }

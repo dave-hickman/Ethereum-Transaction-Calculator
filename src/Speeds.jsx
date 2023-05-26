@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchSpeeds } from "../utils/apiGET";
 import "./speeds.css"
 
-const Speeds = ({gasSpeeds, setGasSpeeds, handleSpeedChange, setSpeed}) => {
+const Speeds = ({gasSpeeds, setGasSpeeds, handleSpeedChange, setSpeed, setChosenSpeed}) => {
   const speeds = ["eco", "fast", "instant"]
   const speedRef= {eco: 'Slow', fast: 'Fast', instant: 'Instant'}
   const [selectedSpeed, setSelectedSpeed] = useState(speeds[1]);
@@ -10,7 +10,8 @@ const Speeds = ({gasSpeeds, setGasSpeeds, handleSpeedChange, setSpeed}) => {
   const handleButtonClick = (event, speed) => {
     event.preventDefault();
     setSelectedSpeed(speed);
-    handleSpeedChange(event);
+    handleSpeedChange(event)
+    setChosenSpeed(speed);
   }
 
   return (
