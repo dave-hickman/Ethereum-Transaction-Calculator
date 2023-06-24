@@ -6,6 +6,8 @@
     justify-content: center;
     gap: 1rem;
   }
+
+
   
   .speeds{
     display: flex;
@@ -46,3 +48,9 @@
     font-weight: 200;
     font-size: .8rem;
   }
+
+  @media (min-width: 800px) {
+    .speeds-container {
+      margin-bottom: 20px;}
+  
+    }

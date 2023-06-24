@@ -57,10 +57,10 @@ const Calculator = ({ ethPrice, gasSpeeds, setGasSpeeds, historicPrices }) => {
               <option value="105657">Uniswap V2: Swap</option>
               <option value="109253">SushiSwap: Swap</option>
             </select>
-          </div>
           <button type="submit" onClick={calculateResult}>
             Get your estimate
           </button>
+          </div>
         </form>
         <p id="result">{result}</p>
       </section>

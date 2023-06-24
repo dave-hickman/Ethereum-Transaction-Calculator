@@ -32,7 +32,9 @@ function App() {
   return (
     <>
       <Header ethPrice={ethPrice} />
+      <div className="calc-container">
       <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} historicPrices={historicPrices} />
+      </div>
     </>
   );
 }
