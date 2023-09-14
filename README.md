@@ -2,7 +2,7 @@
 
 ## Overview
 
-This app allows you to calculate the real-time cost of a transaction on the Ethereum network (gas fee), by choosing your desired speed and the type of transaction you would like to make. This app simplifies what can be a confusing process and provides a graph to indicate the most cost-effective time to make a transaction. It pulls live data of the Ethereum network from the [Etherscan API](https://docs.etherscan.io/)
+This app allows you to calculate the real-time cost of a transaction on the Ethereum network (gas fee), by choosing your desired speed and the type of transaction you would like to make. This app simplifies what can be a confusing process and pulls live data of the Ethereum network from the [Etherscan API](https://docs.etherscan.io/)
 
 Live Version:
 
