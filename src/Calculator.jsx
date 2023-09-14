@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./calculator.css";
 import Speeds from "./Speeds";
-import Chart from "./Chart";
 
-const Calculator = ({ ethPrice, gasSpeeds, setGasSpeeds, historicPrices }) => {
-  const [speed, setSpeed] = useState(Math.round(gasSpeeds.fast.feeCap));
+const Calculator = ({ ethPrice, gasSpeeds, setGasSpeeds }) => {
+  const [speed, setSpeed] = useState(Math.round(gasSpeeds.fast));
   const [transaction, setTransaction] = useState("21000");
   const [result, setResult] = useState("");
   const [chosenSpeed, setChosenSpeed] = useState("fast")
@@ -64,7 +63,6 @@ const Calculator = ({ ethPrice, gasSpeeds, setGasSpeeds, historicPrices }) => {
         </form>
         <p id="result">{result}</p>
       </section>
-      <Chart historicPrices={historicPrices} speed={speed} chosenSpeed={chosenSpeed}/>
     </>
   );
 };

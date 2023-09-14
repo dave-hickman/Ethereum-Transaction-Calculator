@@ -2,26 +2,23 @@ import { useState, useEffect } from "react";
 import "./index.css";
 import Header from "./Header";
 import Calculator from "./Calculator";
-import { fetchEthPrice, fetchSpeeds, fetchGasData } from "../utils/apiGET";
+import { fetchEthPrice, fetchSpeeds} from "../utils/apiGET";
 
 
 function App() {
   const [gasSpeeds, setGasSpeeds] = useState({});
   const [ethPrice, setEthPrice] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [historicPrices, setHistoricPrices] = useState([])
 
   useEffect(() => {
-    Promise.all([fetchSpeeds(), fetchEthPrice(), fetchGasData()])
-      .then(([speeds, price, historic]) => {
+    Promise.all([fetchSpeeds(), fetchEthPrice()])
+      .then(([speeds, price]) => {
         setGasSpeeds(speeds);
         setEthPrice(price);
-        setHistoricPrices(historic)
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("An error occurred:", error);
-        setErrorMessage("An error occurred. Please try again later.");
       });
   }, []);
 
@@ -33,7 +30,7 @@ function App() {
     <>
       <Header ethPrice={ethPrice} />
       <div className="calc-container">
-      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} historicPrices={historicPrices} />
+      <Calculator ethPrice={ethPrice} gasSpeeds={gasSpeeds} setGasSpeeds={setGasSpeeds} />
       </div>
     </>
   );

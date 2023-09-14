@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
-import { fetchSpeeds } from "../utils/apiGET";
+import { useState } from "react";
 import "./speeds.css"
 
 const Speeds = ({gasSpeeds, setGasSpeeds, handleSpeedChange, setSpeed, setChosenSpeed}) => {
-  const speeds = ["eco", "fast", "instant"]
-  const speedRef= {eco: 'Slow', fast: 'Fast', instant: 'Instant'}
+  const speeds = ["SafeGasPrice", "ProposeGasPrice", "FastGasPrice"]
+  const speedRef= {SafeGasPrice: 'Eco', ProposeGasPrice: 'Fast', FastGasPrice: 'Instant'}
   const [selectedSpeed, setSelectedSpeed] = useState(speeds[1]);
 
   const handleButtonClick = (event, speed) => {
@@ -19,9 +18,9 @@ const Speeds = ({gasSpeeds, setGasSpeeds, handleSpeedChange, setSpeed, setChosen
       {speeds.map((speed, index) => {
         const buttonClassName = selectedSpeed === speed ? 'speeds selected' : 'speeds';
         return (
-          <button onClick={(event) => handleButtonClick(event, speed)} className={buttonClassName} key={index} value={Math.round(gasSpeeds[speed].feeCap)}>
+          <button onClick={(event) => handleButtonClick(event, speed)} className={buttonClassName} key={index} value={Math.round(gasSpeeds[speed])}>
             <h2>{`${speedRef[speed]}`}</h2>
-            <h3 id={`${speedRef[speed]} Gas Price`}>{Math.round(gasSpeeds[speed].feeCap)}</h3>
+            <h3 id={`${speedRef[speed]} Gas Price`}>{Math.round(gasSpeeds[speed])}</h3>
             <h4>Gwei</h4>
           </button>
         );

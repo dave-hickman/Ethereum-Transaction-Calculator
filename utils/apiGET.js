@@ -4,14 +4,14 @@ import axios from "axios";
 export function fetchSpeeds() {
   return axios
     .get(
-      "https://api.gasprice.io/v1/estimates"
+      `https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${import.meta.env.VITE_ETHERSCAN_API_KEY}`
     )
     .then((response) => {
       return response.data.result;
     })
     .catch((error) => {
       console.error("An error occured:", error);
-      setErrorMessage("An error occured. Please try again later.");
+      // setErrorMessage("An error occured. Please try again later.");
     });
 }
 
@@ -22,17 +22,6 @@ export function fetchEthPrice() {
     })
     .catch((error) => {
         console.error("An error occured:", error);
-        setErrorMessage("An error occured. Please try again later.");
+        // setErrorMessage("An error occured. Please try again later.");
       });
-}
-
-export function fetchGasData() {
-  return axios.get(`https://api.gasprice.io/v1/historyByHour?duration=86400`)
-  .then((response) => {
-      return response.data.result
-  })
-  .catch((error) => {
-      console.error("An error occured:", error);
-      setErrorMessage("An error occured. Please try again later.");
-    });
 }
